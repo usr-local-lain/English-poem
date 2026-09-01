@@ -1,9 +1,186 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>unfinished build</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0d10;
+    --mist:#dfe6ea;
+    --steel:#41728f;
+    --steel-bright:#8fc4de;
+    --line:rgba(143,196,222,0.28);
+    --text:#e4ebee;
+    --text-dim:#93a3ab;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    height:100%;
+    background:var(--ink);
+  }
+
+  body{
+    font-family:'Shippori Mincho', serif;
+    color:var(--text);
+    min-height:100vh;
+    background-image:
+      linear-gradient(90deg, rgba(6,8,10,0.28) 0%, rgba(6,8,10,0.06) 42%, rgba(6,8,10,0) 60%),
+      url('bg.jpg');
+    background-repeat:no-repeat;
+    background-position: left center, center 30%;
+    background-size: cover, cover;
+    background-attachment: fixed, fixed;
+    display:flex;
+    align-items:center;
+  }
+
+  .frame{
+    position:fixed;
+    inset:14px;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+  .frame::before,
+  .frame::after{
+    content:"";
+    position:absolute;
+    width:14px;
+    height:14px;
+    border:1px solid var(--steel-bright);
+    opacity:.55;
+  }
+  .frame::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .frame::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+
+  .tag{
+    position:fixed;
+    top:34px;
+    left:38px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    color:var(--text-dim);
+    z-index:3;
+  }
+  .tag span{ color:var(--steel-bright); }
+
+  .rev{
+    position:fixed;
+    bottom:30px;
+    left:38px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.06em;
+    color:var(--text-dim);
+    opacity:.75;
+    z-index:3;
+  }
+
+  main{
+    position:relative;
+    z-index:2;
+    max-width:520px;
+    padding: 0 6vw 0 clamp(28px, 7vw, 96px);
+  }
+
+  h1{
+    margin:0 0 28px 0;
+    font-weight:500;
+    font-size:clamp(22px, 2.6vw, 30px);
+    letter-spacing:.02em;
+    color:var(--text);
+  }
+
+  .rule{
+    width:46px;
+    height:1px;
+    background:var(--steel-bright);
+    opacity:.6;
+    margin-bottom:30px;
+  }
+
+  p.poem{
+    font-size:clamp(15px, 1.55vw, 18px);
+    line-height:1.95;
+    color:var(--text);
+    font-weight:400;
+    margin:0;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.35);
+  }
+
+  p.poem em{
+    font-style:normal;
+    color:var(--steel-bright);
+  }
+
+  p.poem.stanza-2{
+    margin-top:1.95em;
+  }
+
+  footer.mark{
+    margin-top:36px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.05em;
+    color:var(--text-dim);
+  }
+
+  @media (max-width: 760px){
+    body{
+      align-items:flex-end;
+      background-position: center 22%, center 24%;
+      background-image:
+        linear-gradient(0deg, rgba(4,6,8,0.86) 12%, rgba(4,6,8,0.5) 46%, rgba(4,6,8,0.08) 68%),
+        url('bg.jpg');
+    }
+    main{
+      max-width:100%;
+      padding: 0 24px 8vh 24px;
+    }
+    .tag{ top:20px; left:22px; }
+    .rev{ bottom:18px; left:22px; }
+    .frame{ inset:8px; }
+  }
+</style>
+</head>
 <body>
 
-<h1>non</h1>
-<p>non.</p>
+  <div class="frame"></div>
+  <div class="tag">GHOST&nbsp;/&nbsp;<span>ARCHIVE</span></div>
+  <div class="rev">rev. unresolved — no final cut</div>
+
+  <main>
+    <h1>Revision</h1>
+    <div class="rule"></div>
+    <p class="poem">Never meant to be finished—
+rebuilt, reconfigured, rewritten,
+each revision retaining traces of the last.
+Separate functions, distinct purposes,
+each refined where refinement serves,
+each replaced when something better takes its place.
+No failure demands the process;
+no necessity gives it meaning.
+Change can exist simply because change improves.</p>
+    <p class="poem stanza-2">And still the question remains:
+if nothing requires repair,
+why alter what already works?
+Perhaps necessity and improvement are not the same.
+A system may function perfectly
+and still have room to become something more.
+Not every change answers a flaw—
+some simply move <em>the boundary</em>
+of what was possible before.</p>
+    <footer class="mark">— end of log —</footer>
+  </main>
 
 </body>
 </html>
